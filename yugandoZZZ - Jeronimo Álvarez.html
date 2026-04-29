@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YugandoZZZ</title>
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #222222;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: 32px;
+    }
+
+    h2 {
+      color: #1a1a2e;
+      font-size: 24px;
+    }
+
+    h3 {
+      color: #16213e;
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 6px;
+    }
+
+    a {
+      color: #0f3460;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #header {
+      background-color: #1a1a2e;
+      padding: 20px 30px;
+      margin: 0;
+      border-bottom: 4px solid #e94560;
+    }
+
+    .nav-lista {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-lista li a {
+      color: #ffffff;
+      font-size: 14px;
+      padding: 6px 12px;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+    }
+
+    .nav-lista li a:hover {
+      background-color: #e94560;
+      border-color: #e94560;
+      text-decoration: none;
+    }
+
+    #inicio {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #16213e;
+      color: white;
+    }
+
+    #inicio p {
+      color: #cccccc;
+      font-size: 16px;
+    }
+
+    .seccion-juego {
+      background-color: #ffffff;
+      margin: 20px 30px;
+      padding: 20px;
+      border: 2px solid #1a1a2e;
+      border-radius: 6px;
+    }
+
+    .seccion-juego img {
+      display: block;
+      margin: 12px 0;
+    }
+
+    #juego-rol {
+      border-left: 6px solid #e94560;
+    }
+
+    #juego-aventura {
+      border-left: 6px solid #0f3460;
+    }
+
+    #juego-simulacion {
+      border-left: 6px solid #16a085;
+    }
+
+    #seccion-video {
+      background-color: #1a1a2e;
+      padding: 30px 20px;
+      text-align: center;
+      margin: 20px 30px;
+      border-radius: 6px;
+    }
+
+    #seccion-video h2 {
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    #seccion-tabla {
+      margin: 20px 30px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 2px solid #1a1a2e;
+      border-radius: 6px;
+    }
+
+    #tabla-juegos {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    #tabla-juegos th {
+      background-color: #1a1a2e;
+      color: #ffffff;
+      padding: 10px 15px;
+      border: 1px solid #cccccc;
+      text-align: left;
+    }
+
+    #tabla-juegos td {
+      padding: 8px 15px;
+      border: 1px solid #cccccc;
+    }
+
+    #tabla-juegos tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    #registro {
+      background-color: #f9f9f9;
+      margin: 20px 30px;
+      padding: 25px;
+      border: 2px solid #0f3460;
+      border-radius: 6px;
+    }
+
+    #registro h2 {
+      margin-bottom: 15px;
+    }
+
+    .grupo-campo {
+      margin-bottom: 15px;
+    }
+
+    .grupo-campo label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #1a1a2e;
+    }
+
+    .grupo-campo input {
+      width: 100%;
+      max-width: 350px;
+      padding: 8px 10px;
+      border: 1px solid #aaaaaa;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .grupo-campo input:focus {
+      border-color: #0f3460;
+      outline: none;
+    }
+
+    .boton-enviar {
+      background-color: #e94560;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .boton-enviar:hover {
+      background-color: #c73652;
+    }
+
+    #contacto {
+      background-color: #1a1a2e;
+      color: #ffffff;
+      padding: 25px 30px;
+      margin-top: 30px;
+      border-top: 4px solid #e94560;
+    }
+
+    #contacto h2 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    #contacto a {
+      color: #e94560;
+    }
+
+    #contacto p {
+      margin: 6px 0;
+    }
+
+    @media (max-width: 600px) {
+      .nav-lista {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .seccion-juego,
+      #seccion-tabla,
+      #registro,
+      #seccion-video {
+        margin: 15px 10px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header id="header">
+    <h1>YugandoZZZ</h1>
+    <nav>
+      <ul class="nav-lista">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#juego-rol">Juegos de Rol</a></li>
+        <li><a href="#juego-aventura">Aventura</a></li>
+        <li><a href="#juego-simulacion">Simulación</a></li>
+        <li><a href="#seccion-video">Video</a></li>
+        <li><a href="#registro">Registro</a></li>
+        <li><a href="#contacto">Contáctenos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h2 style="color: #ffffff;">Aquí encontrarás los tipos de juegos que puedes descargar</h2>
+    <p>Explora los géneros más populares del mundo gamer</p>
+  </section>
+
+  <section id="juego-rol" class="seccion-juego">
+    <h3>Juegos de Rol</h3>
+    <p>Un juego de rol (o role-playing) es una actividad colaborativa e interpretativa en la que los participantes asumen el papel de personajes ficticios en una trama, tomando decisiones y reaccionando a situaciones sin un guion predefinido. Combina creatividad, narrativa y, a menudo, reglas o azar para resolver conflictos.</p>
+    <img src="https://i.blogs.es/d35b22/child-of-light/1366_2000.webp" alt="Child of Light – juego de rol">
+    <p>Este juego es Child of Light, un juego de rol muy popular entre los gamers.</p>
+  </section>
+
+  <section id="juego-aventura" class="seccion-juego">
+    <h3>Juegos de Aventura</h3>
+    <p>Un juego de aventura es un género de videojuegos centrado en la narrativa, la exploración y la resolución de rompecabezas, donde el jugador avanza a través de una historia interactiva. A diferencia de los juegos de acción, priorizan la trama sobre los reflejos, usando inventarios y diálogos.</p>
+    <img src="https://www.hd-tecnologia.com/imagenes/articulos/2022/04/Top-10-de-los-mejores-juegos-de-aventura.jpg" alt="Juegos de aventura">
+    <p>En esta imagen puedes ver 3 juegos muy importantes: The Legend of Zelda, Tomb Raider y Crash Bandicoot.</p>
+  </section>
+
+  <section id="juego-simulacion" class="seccion-juego">
+    <h3>Juegos de Simulación</h3>
+    <p>Un juego de simulación está diseñado para imitar, de la manera más fiel posible, situaciones o entornos de la vida real. Su objetivo es permitir al jugador experimentar, gestionar o entrenar habilidades en un entorno virtual seguro.</p>
+    <img src="https://media.contentapi.ea.com/content/dam/eacom/SIMS/Console/EA-generic-16-9.jpg.adapt.crop16x9.1023w.jpg" alt="Los Sims 4">
+    <p>En esta imagen se puede apreciar Los Sims 4, uno de los juegos más influyentes de simulación.</p>
+  </section>
+
+  <section id="seccion-video">
+    <h2>Video sobre los géneros de los videojuegos</h2>
+    <iframe width="545" height="300"
+      src="https://www.youtube.com/embed/wnZm5-tbbiQ"
+      title="Video sobre los géneros de los videojuegos"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+  <section id="seccion-tabla">
+    <h2>Tabla de juegos</h2>
+    <table id="tabla-juegos">
+      <tr>
+        <th>Tipo de juego</th>
+        <th>Nombre del juego</th>
+        <th>Edad del público</th>
+      </tr>
+      <tr>
+        <td>Juego de rol</td>
+        <td>Child of Light</td>
+        <td>10 a 17 años</td>
+      </tr>
+      <tr>
+        <td>Juego de aventura</td>
+        <td>Crash Bandicoot</td>
+        <td>6 a 35 años</td>
+      </tr>
+      <tr>
+        <td>Juego de simulación</td>
+        <td>Los Sims 4</td>
+        <td>13 a 34 años</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="registro">
+    <h2>Registro / Login</h2>
+
+    <div class="grupo-campo">
+      <label for="inp-usuario">Usuario</label>
+      <input type="text" id="inp-usuario" placeholder="Tu nombre de usuario">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-email">Email</label>
+      <input type="email" id="inp-email" placeholder="correo@ejemplo.com">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-edad">Edad</label>
+      <input type="number" id="inp-edad" placeholder="Ej: 18">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-pass">Contraseña</label>
+      <input type="password" id="inp-pass" placeholder="••••••••">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-pass2">Confirmar Contraseña</label>
+      <input type="password" id="inp-pass2" placeholder="••••••••">
+    </div>
+
+    <button class="boton-enviar" type="button">Ingresar</button>
+  </section>
+
+  <footer id="contacto">
+    <h2>Contáctenos</h2>
+    <p>Información de contacto</p>
+    <p>Redes sociales: <a href="https://www.instagram.com/j_alvarez_777/" target="_blank">Instagram del creador</a></p>
+    <p>Copyright &copy; 2025 YugandoZZZ</p>
+  </footer>
+
+</body>
+</html>
