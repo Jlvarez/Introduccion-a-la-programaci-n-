@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YugandoZZZ</title>
+
+  <style>
+
+    /* -------------------------------------------------------
+       SELECTORES DE ELEMENTO
+       Se aplican a TODAS las etiquetas de ese tipo en la página.
+       Por ejemplo, todo <p> tendrá font-size 15px automáticamente.
+       Esto se llama HERENCIA: los hijos heredan estilos del padre.
+    ------------------------------------------------------- */
+    body {
+      font-family: Arial, sans-serif; /* fuente para todo el sitio */
+      background-color: #f0f0f0;     /* color gris claro de fondo */
+      color: #222222;                /* color del texto general */
+      margin: 0;                     /* quitamos el margen que el navegador pone por defecto */
+      padding: 0;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: 32px;
+    }
+
+    h2 {
+      color: #1a1a2e;
+      font-size: 24px;
+    }
+
+    h3 {
+      color: #16213e;
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6; /* espacio entre líneas para que sea más legible */
+    }
+
+    img {
+      width: 100%;        /* la imagen ocupa todo el ancho de su contenedor */
+      max-width: 400px;   /* pero nunca más de 400px */
+      border-radius: 6px; /* esquinas redondeadas */
+    }
+
+    a {
+      color: #0f3460;
+      text-decoration: none; /* quitamos el subrayado por defecto de los enlaces */
+    }
+
+    a:hover {
+      text-decoration: underline; /* al pasar el mouse aparece el subrayado */
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE ID: #header
+       El # significa que aplica SOLO al elemento con id="header".
+       Solo puede haber UN elemento con ese ID en toda la página.
+
+       MODELO DE CAJA 1 — HEADER
+       Todo elemento en CSS es una caja con 4 capas:
+         margin  → espacio FUERA de la caja (separa de otros elementos)
+         border  → el borde visible de la caja
+         padding → espacio DENTRO de la caja (entre el borde y el contenido)
+         content → el contenido en sí (texto, imágenes, etc.)
+    ------------------------------------------------------- */
+    #header {
+      background-color: #1a1a2e;
+      padding: 20px 30px;           /* padding: 20px arriba/abajo, 30px izquierda/derecha */
+      margin: 0;                    /* sin margen exterior */
+      border-bottom: 4px solid #e94560; /* border: línea roja de 4px solo abajo */
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE CLASE: .nav-lista
+       El punto . significa que aplica a TODOS los elementos
+       que tengan class="nav-lista". Se puede reutilizar en
+       varios elementos a diferencia del ID.
+    ------------------------------------------------------- */
+    .nav-lista {
+      list-style: none; /* quitamos los puntos de la lista */
+      padding: 0;
+      margin: 10px 0 0 0; /* solo margen arriba de 10px */
+      display: flex;      /* pone los ítems en fila horizontal */
+      gap: 15px;          /* espacio de 15px entre cada ítem */
+      flex-wrap: wrap;    /* si no caben, bajan a la siguiente línea */
+    }
+
+    /* JERARQUÍA CSS: este selector apunta al <a> dentro de <li> dentro de .nav-lista */
+    /* Mientras más específico el selector, más prioridad tiene */
+    .nav-lista li a {
+      color: #ffffff;
+      font-size: 14px;
+      padding: 6px 12px;          /* padding interno del botón del nav */
+      border: 1px solid #ffffff;  /* border blanco alrededor de cada enlace */
+      border-radius: 4px;
+    }
+
+    .nav-lista li a:hover {
+      background-color: #e94560; /* fondo rojo al pasar el mouse */
+      border-color: #e94560;
+      text-decoration: none;
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE ID: #inicio
+    ------------------------------------------------------- */
+    #inicio {
+      text-align: center;
+      padding: 40px 20px; /* padding generoso para que respire el contenido */
+      background-color: #16213e;
+      color: white;
+    }
+
+    #inicio p {
+      color: #cccccc;
+      font-size: 16px;
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE CLASE: .seccion-juego  (CLASE REUTILIZABLE)
+       Esta clase se usa en las 3 secciones de juegos.
+       Así no repetimos el mismo CSS 3 veces.
+
+       MODELO DE CAJA 2 — TARJETAS DE JUEGO
+    ------------------------------------------------------- */
+    .seccion-juego {
+      background-color: #ffffff;
+      margin: 20px 30px;         /* margin: separa cada sección de las demás */
+      padding: 20px;             /* padding: espacio entre el borde y el texto */
+      border: 2px solid #1a1a2e; /* border: borde oscuro alrededor de la caja */
+      border-radius: 6px;
+    }
+
+    .seccion-juego img {
+      display: block;
+      margin: 12px 0; /* margen arriba y abajo de la imagen */
+    }
+
+    /* -------------------------------------------------------
+       SELECTORES DE ID para cada juego
+       Cada sección tiene su propio color en el borde izquierdo.
+       Esto muestra cómo un ID puede AÑADIR estilos encima de una clase.
+       La clase .seccion-juego pone el borde general,
+       y el ID específico cambia solo el borde izquierdo.
+    ------------------------------------------------------- */
+    #juego-rol {
+      border-left: 6px solid #e94560; /* borde izquierdo rojo para rol */
+    }
+
+    #juego-aventura {
+      border-left: 6px solid #0f3460; /* borde izquierdo azul para aventura */
+    }
+
+    #juego-simulacion {
+      border-left: 6px solid #16a085; /* borde izquierdo verde para simulación */
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE ID: #seccion-video
+    ------------------------------------------------------- */
+    #seccion-video {
+      background-color: #1a1a2e;
+      padding: 30px 20px;
+      text-align: center;
+      margin: 20px 30px;
+      border-radius: 6px;
+    }
+
+    #seccion-video h2 {
+      color: #ffffff;
+      margin-bottom: 15px; /* margen debajo del título antes del video */
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE ID: #seccion-tabla
+
+       MODELO DE CAJA 3 — TABLA
+    ------------------------------------------------------- */
+    #seccion-tabla {
+      margin: 20px 30px;          /* margin exterior que la separa de otras secciones */
+      padding: 20px;              /* padding interior entre el borde y la tabla */
+      background-color: #ffffff;
+      border: 2px solid #1a1a2e; /* border visible alrededor de toda la sección */
+      border-radius: 6px;
+    }
+
+    /* SELECTOR DE ID: #tabla-juegos — aplica a la tabla específicamente */
+    #tabla-juegos {
+      width: 100%;
+      border-collapse: collapse; /* une los bordes de las celdas, sin espacio entre ellas */
+      margin-top: 15px;
+    }
+
+    #tabla-juegos th {
+      background-color: #1a1a2e;
+      color: #ffffff;
+      padding: 10px 15px; /* padding dentro de cada celda de encabezado */
+      border: 1px solid #cccccc;
+      text-align: left;
+    }
+
+    #tabla-juegos td {
+      padding: 8px 15px; /* padding dentro de cada celda de datos */
+      border: 1px solid #cccccc;
+    }
+
+    /* JERARQUÍA: este selector es más específico que solo "tr" */
+    #tabla-juegos tr:nth-child(even) {
+      background-color: #f9f9f9; /* filas pares con fondo gris muy suave */
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE ID: #registro
+    ------------------------------------------------------- */
+    #registro {
+      background-color: #f9f9f9;
+      margin: 20px 30px;
+      padding: 25px;
+      border: 2px solid #0f3460;
+      border-radius: 6px;
+    }
+
+    #registro h2 {
+      margin-bottom: 15px;
+    }
+
+    /* -------------------------------------------------------
+       SELECTOR DE CLASE: .grupo-campo  (CLASE REUTILIZABLE)
+       Se reutiliza en cada campo del formulario.
+       Así todos los campos tienen el mismo espaciado.
+    ------------------------------------------------------- */
+    .grupo-campo {
+      margin-bottom: 15px; /* separa cada campo del siguiente */
+    }
+
+    .grupo-campo label {
+      display: block;       /* el label ocupa toda la línea, no va al lado del input */
+      font-weight: bold;
+      margin-bottom: 5px;   /* pequeño margen entre el label y el input */
+      color: #1a1a2e;
+    }
+
+    .grupo-campo input {
+      width: 100%;
+      max-width: 350px;
+      padding: 8px 10px;          /* padding interno del campo de texto */
+      border: 1px solid #aaaaaa;  /* border gris del input */
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* :focus es una pseudo-clase: aplica cuando el usuario hace clic en el input */
+    .grupo-campo input:focus {
+      border-color: #0f3460; /* el borde cambia de color al escribir */
+      outline: none;         /* quitamos el contorno azul por defecto del navegador */
+    }
+
+    /* -------------------------------------------------------
+       SELECTOR DE CLASE: .boton-enviar  (CLASE REUTILIZABLE)
+       Si quisiéramos otro botón igual en otro lugar, solo
+       le ponemos class="boton-enviar" y ya tiene este estilo.
+    ------------------------------------------------------- */
+    .boton-enviar {
+      background-color: #e94560;
+      color: white;
+      border: none;
+      padding: 10px 24px; /* padding del botón: más ancho que alto */
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;    /* el cursor se convierte en manito al pasar encima */
+      margin-top: 5px;
+    }
+
+    .boton-enviar:hover {
+      background-color: #c73652; /* color más oscuro al pasar el mouse */
+    }
+
+
+    /* -------------------------------------------------------
+       SELECTOR DE ID: #contacto (footer)
+    ------------------------------------------------------- */
+    #contacto {
+      background-color: #1a1a2e;
+      color: #ffffff;
+      padding: 25px 30px;
+      margin-top: 30px;
+      border-top: 4px solid #e94560; /* border superior rojo igual que el header */
+    }
+
+    #contacto h2 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    #contacto a {
+      color: #e94560;
+    }
+
+    #contacto p {
+      margin: 6px 0;
+    }
+
+
+    /* -------------------------------------------------------
+       RESPONSIVIDAD — @media query
+       Todo lo que está dentro solo aplica cuando la pantalla
+       tiene 600px o menos (celular).
+       Así la página se ve bien tanto en PC como en móvil.
+    ------------------------------------------------------- */
+    @media (max-width: 600px) {
+
+      /* En celular, el menú se pone vertical en vez de horizontal */
+      .nav-lista {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      /* En celular, reducimos los márgenes laterales para que no quede apretado */
+      .seccion-juego,
+      #seccion-tabla,
+      #registro,
+      #seccion-video {
+        margin: 15px 10px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER
+       id="header" → recibe los estilos de #header en CSS
+       Las anclas (href="#id") permiten navegar dentro
+       de la misma página al hacer clic en el menú.
+  ====================================================== -->
+  <header id="header">
+    <h1>YugandoZZZ</h1>
+    <nav>
+      <!-- class="nav-lista" → recibe estilos de .nav-lista en CSS -->
+      <ul class="nav-lista">
+        <li><a href="#inicio">Inicio</a></li>            <!-- ancla a #inicio -->
+        <li><a href="#juego-rol">Juegos de Rol</a></li>  <!-- ancla a #juego-rol -->
+        <li><a href="#juego-aventura">Aventura</a></li>
+        <li><a href="#juego-simulacion">Simulación</a></li>
+        <li><a href="#seccion-video">Video</a></li>
+        <li><a href="#registro">Registro</a></li>
+        <li><a href="#contacto">Contáctenos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- =====================================================
+       INICIO
+       id="inicio" → recibe estilos de #inicio en CSS
+  ====================================================== -->
+  <section id="inicio">
+    <h2 style="color: #ffffff;">Aquí encontrarás los tipos de juegos que puedes descargar</h2>
+    <p>Explora los géneros más populares del mundo gamer</p>
+  </section>
+
+
+  <!-- =====================================================
+       JUEGO DE ROL
+       Tiene DOS identificadores a la vez:
+         id="juego-rol"       → estilos únicos de #juego-rol (borde rojo)
+         class="seccion-juego" → estilos compartidos con las otras secciones
+
+       MODELO DE CAJA visible:
+         margin: 20px 30px   → espacio exterior
+         padding: 20px       → espacio interior
+         border: 2px solid   → borde de la caja
+  ====================================================== -->
+  <section id="juego-rol" class="seccion-juego">
+    <h3>Juegos de Rol</h3>
+    <p>Un juego de rol (o role-playing) es una actividad colaborativa e interpretativa en la que los participantes asumen el papel de personajes ficticios en una trama, tomando decisiones y reaccionando a situaciones sin un guion predefinido. Combina creatividad, narrativa y, a menudo, reglas o azar para resolver conflictos.</p>
+    <img src="https://i.blogs.es/d35b22/child-of-light/1366_2000.webp" alt="Child of Light – juego de rol">
+    <p>Este juego es Child of Light, un juego de rol muy popular entre los gamers.</p>
+  </section>
+
+
+  <!-- =====================================================
+       JUEGO DE AVENTURA
+       Misma estructura: ID único + clase reutilizable
+  ====================================================== -->
+  <section id="juego-aventura" class="seccion-juego">
+    <h3>Juegos de Aventura</h3>
+    <p>Un juego de aventura es un género de videojuegos centrado en la narrativa, la exploración y la resolución de rompecabezas, donde el jugador avanza a través de una historia interactiva. A diferencia de los juegos de acción, priorizan la trama sobre los reflejos, usando inventarios y diálogos.</p>
+    <img src="https://www.hd-tecnologia.com/imagenes/articulos/2022/04/Top-10-de-los-mejores-juegos-de-aventura.jpg" alt="Juegos de aventura">
+    <p>En esta imagen puedes ver 3 juegos muy importantes: The Legend of Zelda, Tomb Raider y Crash Bandicoot.</p>
+  </section>
+
+
+  <!-- =====================================================
+       JUEGO DE SIMULACIÓN
+       Misma estructura: ID único + clase reutilizable
+  ====================================================== -->
+  <section id="juego-simulacion" class="seccion-juego">
+    <h3>Juegos de Simulación</h3>
+    <p>Un juego de simulación está diseñado para imitar, de la manera más fiel posible, situaciones o entornos de la vida real. Su objetivo es permitir al jugador experimentar, gestionar o entrenar habilidades en un entorno virtual seguro.</p>
+    <img src="https://media.contentapi.ea.com/content/dam/eacom/SIMS/Console/EA-generic-16-9.jpg.adapt.crop16x9.1023w.jpg" alt="Los Sims 4">
+    <p>En esta imagen se puede apreciar Los Sims 4, uno de los juegos más influyentes de simulación.</p>
+  </section>
+
+
+  <!-- =====================================================
+       VIDEO
+       id="seccion-video" → estilos de #seccion-video en CSS
+  ====================================================== -->
+  <section id="seccion-video">
+    <h2>Video sobre los géneros de los videojuegos</h2>
+    <iframe width="545" height="300"
+      src="https://www.youtube.com/embed/wnZm5-tbbiQ"
+      title="Video sobre los géneros de los videojuegos"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+
+  <!-- =====================================================
+       TABLA
+       id="seccion-tabla" → estilos de #seccion-tabla en CSS
+
+       MODELO DE CAJA visible:
+         margin: 20px 30px   → espacio exterior
+         padding: 20px       → espacio interior
+         border: 2px solid   → borde de la sección
+       Además cada <th> y <td> tiene su propio padding interno.
+  ====================================================== -->
+  <section id="seccion-tabla">
+    <h2>Tabla de juegos</h2>
+    <!-- id="tabla-juegos" → estilos de #tabla-juegos en CSS -->
+    <table id="tabla-juegos">
+      <tr>
+        <th>Tipo de juego</th>
+        <th>Nombre del juego</th>
+        <th>Edad del público</th>
+      </tr>
+      <tr>
+        <td>Juego de rol</td>
+        <td>Child of Light</td>
+        <td>10 a 17 años</td>
+      </tr>
+      <tr>
+        <td>Juego de aventura</td>
+        <td>Crash Bandicoot</td>
+        <td>6 a 35 años</td>
+      </tr>
+      <tr>
+        <td>Juego de simulación</td>
+        <td>Los Sims 4</td>
+        <td>13 a 34 años</td>
+      </tr>
+    </table>
+  </section>
+
+
+  <!-- =====================================================
+       FORMULARIO
+       id="registro" → estilos de #registro en CSS
+
+       Cada campo está dentro de un <div class="grupo-campo">
+       La clase .grupo-campo es REUTILIZABLE: se repite en
+       cada campo y todos quedan con el mismo espaciado.
+       Esto es mejor que ponerle margin a cada input por separado.
+  ====================================================== -->
+  <section id="registro">
+    <h2>Registro / Login</h2>
+
+    <!-- class="grupo-campo" → clase reutilizable para agrupar label + input -->
+    <div class="grupo-campo">
+      <label for="inp-usuario">Usuario</label>
+      <!-- for="inp-usuario" conecta el label con el input por su id -->
+      <input type="text" id="inp-usuario" placeholder="Tu nombre de usuario">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-email">Email</label>
+      <input type="email" id="inp-email" placeholder="correo@ejemplo.com">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-edad">Edad</label>
+      <input type="number" id="inp-edad" placeholder="Ej: 18">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-pass">Contraseña</label>
+      <input type="password" id="inp-pass" placeholder="••••••••">
+    </div>
+
+    <div class="grupo-campo">
+      <label for="inp-pass2">Confirmar Contraseña</label>
+      <input type="password" id="inp-pass2" placeholder="••••••••">
+    </div>
+
+    <!-- class="boton-enviar" → clase reutilizable para el botón -->
+    <button class="boton-enviar" type="button">Ingresar</button>
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER / CONTACTO
+       id="contacto" → estilos de #contacto en CSS
+  ====================================================== -->
+  <footer id="contacto">
+    <h2>Contáctenos</h2>
+    <p>Información de contacto</p>
+    <p>Redes sociales: <a href="https://www.instagram.com/j_alvarez_777/" target="_blank">Instagram del creador</a></p>
+    <p>Copyright &copy; 2025 YugandoZZZ</p>
+  </footer>
+
+</body>
+</html>
